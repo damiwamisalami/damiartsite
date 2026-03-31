@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Damien's Art ╰(✿´⌣`✿)╯♡</title>
+  <style>
+    :root {
+      --sea-blue: #5f9dbf;
+      --teal-blue: #2b778c;
+      --deep-teal: #1b5158;
+      --forest-teal: #1a3b41;
+      --deep-emerald: #064a4f;
+      --cream: #f4efe8;
+      --shadow: rgba(11, 12, 16, 0.42);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(130deg, #064a4f 0%, #03363b 45%, #021f23 100%);
+      color: #eef6f9;
+      line-height: 1.5;
+      padding: 32px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      border: 4px double var(--deep-teal);
+      border-radius: 26px;
+      background: #9fe887;
+      color: #153a28;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 12px 28px var(--shadow);
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '✧';
+      position: absolute;
+      font-size: 180px;
+      color: rgba(255, 255, 255, 0.1);
+      right: -20px;
+      top: 5px;
+      transform: rotate(35deg);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 3.1rem);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.03em;
+      text-shadow: 0 2px 12px rgba(0,0,0,.2);
+    }
+
+    .hero p {
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      margin: 0.4rem auto 0;
+      max-width: 780px;
+      color: #e8eef5;
+    }
+
+    .palette {
+      margin: 1.2rem auto 2rem;
+      max-width: 500px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 32, 0.18);
+      box-shadow: 0 8px 24px rgba(21, 35, 46, 0.24);
+    }
+
+    .palette span {
+      width: 100%;
+      padding: 16px 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #9fe887;
+      border: 8px solid #d4af37;
+      border-radius: 18px;
+      box-shadow: 4px 13px 24px rgba(0,0,0,0.22);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 340px;
+      padding: 10px;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 5px 16px 30px rgba(0,0,0,0.28);
+    }
+
+    .frame {
+      border: 10px solid #d4af37;
+      border-style: double;
+      border-radius: 14px;
+      background: #9fe887;
+      width: 100%;
+      height: 100%;
+      max-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .frame img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      margin: auto;
+      border-radius: 6px;
+      background: #9fe887;
+    }
+
+    .frame::before {
+      content: '🖼';
+      position: absolute;
+      opacity: 0.06;
+      font-size: 80px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+
+
+    .credits {
+      text-align: center;
+      margin-top: 26px;
+      color: #34404a;
+      font-size: 0.92rem;
+    }
+
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      padding: 16px;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-overlay img {
+      max-width: 95%;
+      max-height: 95%;
+      border: 8px solid #d4af37;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.8);
+      object-fit: contain;
+      background: #9fe887;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 18px 12px; }
+      .hero { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>Damien's Art ╰(✿´⌣`✿)╯♡</h1>
+    </section>
+
+    <section class="gallery">
+      <article class="card">
+        <div class="frame"><img src="IMG_2809.jpg" alt="Art piece 1" /></div>
+      </article>
+      <article class="card">
+        <div class="frame"><img src="IMG_4264.jpg" alt="Art piece 2" /></div>
+      </article>
+      <article class="card">
+        <div class="frame"><img src="IMG_5014.jpg" alt="Art piece 3" /></div>
+      </article>
+      <article class="card">
+        <div class="frame"><img src="IMG_5049.jpg" alt="Art piece 4" /></div>
+      </article>
+      <article class="card">
+        <div class="frame"><img src="IMG_5094.jpg" alt="Art piece 5" /></div>
+      </article>
+      <article class="card">
+        <div class="frame"><img src="IMG_5158.jpg" alt="Art piece 6" /></div>
+      </article>
+      <article class="card">
+        <div class="frame"><img src="IMG_7265.jpg" alt="Art piece 7" /></div>
+      </article>
+      <article class="card">
+        <div class="frame"><img src="IMG_7267.jpg" alt="Art piece 8" /></div>
+      </article>
+      <article class="card">
+        <div class="frame"><img src="IMG_7275.jpg" alt="Art piece 9" /></div>
+      </article>
+      <article class="card">
+        <div class="frame"><img src="IMG_7281.jpg" alt="Art piece 10" /></div>
+      </article>
+    </section>
+
+    <div class="credits">Handcrafted by Damien. Built with heart, color and imagination.</div>
+  </div>
+
+  <div id="lightboxOverlay" class="lightbox-overlay" aria-hidden="true">
+    <img id="lightboxImage" src="" alt="Expanded art preview" />
+  </div>
+
+  <script>
+    const overlay = document.getElementById('lightboxOverlay');
+    const lightboxImage = document.getElementById('lightboxImage');
+
+    document.querySelectorAll('.frame img').forEach((img) => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', (event) => {
+        lightboxImage.src = event.currentTarget.src;
+        overlay.classList.add('active');
+        overlay.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    overlay.addEventListener('click', (event) => {
+      if (event.target === overlay) {
+        overlay.classList.remove('active');
+        overlay.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+      }
+    });
+
+    lightboxImage.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && overlay.classList.contains('active')) {
+        overlay.classList.remove('active');
+        overlay.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+      }
+    });
+  </script>
+</body>
+</html>
